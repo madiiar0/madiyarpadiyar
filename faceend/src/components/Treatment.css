@@ -1,0 +1,474 @@
+/* ======================= */
+/* YOUR ORIGINAL CSS BELOW */
+/* ======================= */
+
+/* Use the same retro pixel font (assuming it's already imported globally) */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/*
+   The wrapper that fills the screen and applies a background image or color.
+   Adjust the background to match the style from your main page.
+*/
+.game-page-background {
+    font-family: 'Press Start 2P', cursive;
+    width: 100vw;
+    height: 100vh; /* Full viewport height */
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* Light mode background */
+    background: url('/white.png') no-repeat center center / cover;
+    /* Center the game container horizontally & vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Optional: if you're toggling dark/light modes, inherit or adapt colors accordingly */
+    color: inherit;
+}
+
+/* Dark mode override for game-page-background */
+.main-page.dark .game-page-background {
+    /* Use a dark background image (ensure that /dark.png exists in your public folder) */
+    background: url('/dark.png') no-repeat center center / cover;
+    /* The fallback background-color is optional – remove it if you always want the image */
+    /* background-color: #111; */
+    color: #f0f4f8;
+}
+
+/* The main container for the therapy game, now larger and centered */
+.game-container {
+    background-color: #ffe4e1;    /* Light pink background */
+    border: 2px solid #ff69b4;     /* Pink border */
+    border-radius: 10px;
+    color: inherit;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 30px;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* Dark mode override for game-container */
+.main-page.dark .game-container {
+    background-color: #333; /* Dark container background */
+    border-color: #ff69b4;  /* Keep the pink border for contrast */
+    color: #f0f4f8;         /* Light text */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Header for the therapy game, made larger */
+.game-header {
+    font-size: 1.5em;    /* Increased from 1.2em */
+    margin-bottom: 40px; /* Slightly more spacing */
+    color: #ff69b4;
+}
+
+/* Loading/Error styling */
+.error-message {
+    color: red;
+    margin-bottom: 20px;
+    font-size: 1em;      /* Slightly larger for readability */
+}
+
+/* Scenario Section */
+.scenario-section,
+.final-section {
+    background-color: #fff;          /* White inside to differentiate from pink container */
+    border: 2px dashed #ff69b4;
+    border-radius: 10px;
+    padding: 30px;                   /* Increased padding */
+    margin: 0 auto 40px auto;        /* Increased bottom margin */
+    max-width: 100%;
+    text-align: left;
+    position: relative;
+    transition: background-color 0.5s, transform 0.3s;
+}
+
+/* Dark mode override for scenario and final sections */
+.main-page.dark .scenario-section,
+.main-page.dark .final-section {
+    background-color: #444;  /* Darker background for inner sections */
+    border-color: #ff69b4;   /* Keeping border color for consistency */
+    color: #f0f4f8;         /* Light text */
+}
+
+/* Scenario/Conclusion Headings, made larger */
+.scenario-section h2,
+.final-section h2 {
+    text-align: center;
+    font-size: 1.3em;  /* Increased from 1.1em */
+    margin-bottom: 20px;
+    color: #ff69b4;
+}
+
+/* Scenario/Conclusion Paragraph, made larger */
+.scenario-section p,
+.final-section p {
+    margin-bottom: 20px;
+    font-size: 1em;    /* Increased from 0.8em */
+    line-height: 1.6;  /* Increased for better readability */
+}
+
+/* Choice Buttons */
+.choices-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.choices-section h3 {
+    font-size: 1em;    /* Increased from 0.9em */
+    margin-bottom: 15px;
+    color: #ff69b4;
+}
+
+/* Style for each choice button, slightly larger text */
+.choices-section button {
+    background-color: #ff69b4;
+    border: none;
+    color: #fff;
+    padding: 12px 18px;   /* Increased padding */
+    font-size: 0.9em;     /* Increased from 0.7em */
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 6px rgba(255, 105, 180, 0.5);
+}
+
+.choices-section button:hover {
+    background-color: #ff1493;
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(255, 105, 180, 0.6);
+}
+
+/* Final Section Conclusion */
+.final-section h3 {
+    font-size: 1em;  /* Slightly larger heading */
+    margin-bottom: 15px;
+    color: #ff69b4;
+}
+
+/* "Go Back to Profile" Button, also made larger */
+.back-button {
+    background-color: #ff69b4;
+    border: none;
+    color: #fff;
+    padding: 12px 22px;  /* Increased padding */
+    font-size: 0.9em;    /* Increased from 0.7em */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    margin-top: 20px;
+    box-shadow: 0 0 6px rgba(255, 105, 180, 0.5);
+}
+
+.back-button:hover {
+    background-color: #ff1493;
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(255, 105, 180, 0.6);
+}
+
+/* Responsive Design Tweaks */
+@media (max-width: 768px) {
+    .game-container {
+        width: 95%;
+        padding: 40px 20px; /* Slightly smaller on mobile */
+    }
+
+    .scenario-section,
+    .final-section {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .choices-section button,
+    .back-button {
+        font-size: 0.8em;
+        padding: 10px 14px;
+        margin: 5px;
+    }
+}
+
+/* ======================= */
+/* APPENDED SNIPPET BELOW */
+/* ======================= */
+
+/* AssessmentTool.css */
+
+/* Import the shared main page design to match fonts, colors, and backgrounds */
+@import url('../components/MainPage.css');
+
+/* ------------------------------------------------------------------ */
+/* Extend the design for the Likert scale test so it matches MainPage.css */
+/* ------------------------------------------------------------------ */
+
+/* (The header styles below match the ones in mainpage.css) */
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffe4e1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    z-index: 1000;
+    box-shadow: 0 4px 2px -2px gray;
+    transition: background-color 0.5s;
+}
+
+.main-page.dark .header {
+    background-color: #333;
+}
+
+/* Logo and nav links using the same retro font */
+.logo {
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #ff69b4;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+.nav-links li a:hover {
+    color: #ff69b4;
+}
+
+/* Toggle container for theme switching */
+.toggle-container {
+    cursor: pointer;
+    font-size: 1.5em;
+    transition: transform 0.3s;
+}
+
+.toggle-container:hover {
+    transform: scale(1.2);
+}
+
+/* ------------------------- */
+/* Assessment Tool Styling   */
+/* ------------------------- */
+.assessment-tool {
+    padding: 160px 40px 40px; /* extra top padding to account for fixed header */
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title {
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    color: #ff69b4;
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Question Container (mirrors MainPage’s section style) */
+.question-container {
+    background-color: #ffe4e1;
+    border: 2px solid #ff69b4;
+    border-radius: 10px;
+    padding: 40px;
+    margin-bottom: 40px;
+    transition: background-color 0.5s;
+}
+
+.main-page.dark .question-container {
+    background-color: #333;
+    border-color: #ff69b4;
+}
+
+.question-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.8em;
+    color: #ff1493;
+    margin-bottom: 30px;
+}
+
+/* Likert Scale Options styled as figures */
+.likert-scale {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.likert-option {
+    cursor: pointer;
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+.likert-option:hover {
+    transform: scale(1.1);
+}
+
+.likert-option img {
+    width: 80px;
+    height: 80px;
+    transition: all 0.3s;
+}
+
+/* Varying brightness to indicate scale values */
+.likert-option.option-1 img {
+    filter: brightness(0.8);
+}
+.likert-option.option-2 img {
+    filter: brightness(0.9);
+}
+.likert-option.option-3 img {
+    filter: brightness(1);
+}
+.likert-option.option-4 img {
+    filter: brightness(1.1);
+}
+.likert-option.option-5 img {
+    filter: brightness(1.2);
+}
+
+.likert-option figcaption {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    margin-top: 10px;
+    color: #ff69b4;
+}
+
+/* Future Features Section (optional, for diversity and filling space) */
+.future-features {
+    background-color: #ffe4e1;
+    border: 2px dashed #ff69b4;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 40px;
+    font-family: 'Press Start 2P', cursive;
+    color: #ff69b4;
+    text-align: center;
+}
+
+.main-page.dark .future-features {
+    background-color: #333;
+    border-color: #ff69b4;
+    color: #ff69b4;
+}
+
+/* Loading and Error States */
+.loading,
+.error {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2em;
+    color: #ff1493;
+    margin: 30px;
+}
+
+/* Assessment Results styling */
+.results {
+    margin: 30px auto;
+    padding: 30px;
+    border: 2px solid #ff69b4;
+    border-radius: 10px;
+    background-color: #ffe4e1;
+    max-width: 900px;
+    transition: background-color 0.5s;
+}
+
+.main-page.dark .results {
+    background-color: #333;
+}
+
+.results h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ff69b4;
+}
+
+.results p {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.main-page.dark .results p {
+    color: #f0f4f8;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .likert-scale {
+        flex-direction: column;
+    }
+    .likert-option img {
+        width: 60px;
+        height: 60px;
+    }
+    .assessment-tool {
+        padding: 120px 20px 40px;
+    }
+    .title {
+        font-size: 2em;
+    }
+}
+/* See Results Button Styling */
+.see-results-btn {
+    background-color: #ff69b4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
+}
+
+.see-results-btn:hover {
+    background-color: #ff1493;
+    transform: scale(1.05);
+}
+
+/* Optional: Adjust button styling for dark mode */
+.main-page.dark .see-results-btn {
+    background-color: #ff69b4; /* Retain the same button color for visibility */
+    color: #fff;
+}

@@ -1,0 +1,239 @@
+/* src/components/Profile.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* General Styling */
+.profile-page {
+    font-family: 'Press Start 2P', cursive;
+    background: url('../../public/white.png') no-repeat center center / cover;
+    color: #333;
+    transition: background-color 0.5s, color 0.5s;
+
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+}
+
+/* Dark Theme */
+.profile-page.dark {
+    background: url('../../public/black.png') no-repeat center center / cover;
+    color: #f0f4f8;
+}
+
+/* Header Styling */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffe4e1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    z-index: 1000;
+    box-shadow: 0 4px 2px -2px gray;
+    transition: background-color 0.5s;
+}
+
+.profile-page.dark .header {
+    background-color: #333;
+}
+
+/* Title */
+.profile-title {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Profile Layout */
+.profile-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+    max-width: 1200px;
+}
+
+/* Profile Overview Section */
+.profile-overview {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #ffe4e1;
+    padding: 20px;
+    border: 2px solid #ff69b4;
+    border-radius: 10px;
+    transition: background-color 0.5s;
+}
+
+.profile-page.dark .profile-overview {
+    background-color: #333;
+}
+
+.profile-overview .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: url('../../public/default-avatar.png') no-repeat center center / cover;
+    border: 3px solid #ff69b4;
+}
+
+.profile-overview .user-details {
+    flex: 1;
+}
+
+.profile-overview .user-details h2 {
+    margin: 0;
+    font-size: 1em;
+    color: #ff69b4;
+}
+
+.profile-overview .user-details p {
+    margin: 5px 0;
+    font-size: 0.8em;
+}
+
+/* Test Results Section */
+.test-results {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.test-card {
+    background-color: #ffe4e1;
+    border: 2px solid #ff69b4;
+    border-radius: 10px;
+    padding: 20px;
+    transition: background-color 0.5s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-page.dark .test-card {
+    background-color: #333;
+}
+
+.test-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Scale Bar Container */
+.scale-bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: #fff;
+    border: 1px solid #ff69b4;
+    border-radius: 10px;
+    margin: 10px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.scale-bar {
+    height: 100%;
+    background-color: #ff69b4;
+    transition: width 0.5s;
+}
+
+/* Redo Button */
+.redo-button {
+    background-color: #ff69b4;
+    border: none;
+    padding: 12px 20px;
+    font-size: 0.9em;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.redo-button:hover {
+    background-color: #ff1493;
+    transform: scale(1.05);
+}
+
+/* Treat Button Styling */
+.treat-button {
+    background-color: #ff69b4;
+    border: none;
+    padding: 10px 15px;
+    font-size: 0.8em;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 10px;
+}
+
+
+.view-conclusion-button {
+    background-color: #ff69b4;
+    border: none;
+    padding: 10px 15px;
+    font-size: 0.8em;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 10px;
+}
+.view-conclusion-button:hover {
+    background-color: #ff1493;
+    transform: scale(1.05);
+}
+
+
+.result-button {
+    background-color: #ff69b4;
+    border: none;
+    padding: 10px 15px;
+    font-size: 0.8em;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 10px;
+}
+
+.treat-button:hover {
+    background-color: #ff1493;
+    transform: scale(1.05);
+}
+
+/* Recommendations Section */
+.recommendations {
+    background-color: #ffe4e1;
+    padding: 15px;
+    margin: 20px;
+    border-left: 4px solid #ff69b4;
+    border-radius: 5px;
+    font-size: 0.85em;
+    transition: background-color 0.5s;
+}
+
+.profile-page.dark .recommendations {
+    background-color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-layout {
+        width: 90%;
+    }
+
+    .profile-overview {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .test-card {
+        flex-direction: column;
+        align-items: center;
+    }
+}
